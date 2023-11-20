@@ -19,7 +19,7 @@ public class UserController {
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
+    //TODO edit for admin + hide passwords
     @GetMapping(value="/users")
     public Iterable<User> getUsers(){
         return userRepository.findAll();

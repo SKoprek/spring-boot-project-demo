@@ -32,6 +32,9 @@ public class Person {
     @Column(name = "emails", columnDefinition = "text[]")
     private String[] emails;
 
+    public Person() {
+    }
+
     public Person(Long id, String firstName, String secondName, String lastName, Date dateOfBirth, String gender,
             String nationality, String[] phones, String[] emails) {
         this.id = id;
@@ -43,9 +46,6 @@ public class Person {
         this.nationality = nationality;
         this.phones = phones;
         this.emails = emails;
-    }
-
-    public Person() {
     }
 
     public Long getId() {
