@@ -27,7 +27,7 @@ public class ApplicationConfiguration {
         return username -> {
             // TODO Auto-generated method stub
             // throw new UnsupportedOperationException("Unimplemented method 'loadUserByUsername'");
-            return userRepository.findByLogin(username).orElseThrow(()-> new UsernameNotFoundException("User not found!"));
+            return userRepository.findByUsername(username).orElseThrow(()-> new UsernameNotFoundException("User not found!"));
         };
 
     }

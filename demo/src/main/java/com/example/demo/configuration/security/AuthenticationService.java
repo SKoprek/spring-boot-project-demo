@@ -30,7 +30,7 @@ public class AuthenticationService {
     public AuthenticationResponse register(RegisterRequest request) {
         //TO MOZNA BUILDEM ALE
         User user = new User();
-        user.setLogin(request.getLogin());
+        user.setUsername(request.getLogin());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole(RoleTest.USER);
         userRepository.save(user);
@@ -46,7 +46,7 @@ public class AuthenticationService {
                 request.getLogin(), request.getPassword()
                 )
         );
-        User user = userRepository.findByLogin(request.getLogin()).orElseThrow();
+        User user = userRepository.findByUsername(request.getLogin()).orElseThrow();
         var jwtToken = customJWTService.generateToken(user);
         
         // AuthenticationResponse authenticationResponse = new AuthenticationResponse(jwtToken);
