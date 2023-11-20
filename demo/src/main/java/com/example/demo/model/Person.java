@@ -27,12 +27,13 @@ public class Person {
     private String gender;
     @Column(name = "nationality")
     private String nationality;
-
-    public Person() {
-    }
+    @Column(name = "phones", columnDefinition = "text[]")
+    private String[] phones;
+    @Column(name = "emails", columnDefinition = "text[]")
+    private String[] emails;
 
     public Person(Long id, String firstName, String secondName, String lastName, Date dateOfBirth, String gender,
-            String nationality) {
+            String nationality, String[] phones, String[] emails) {
         this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -40,9 +41,13 @@ public class Person {
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.nationality = nationality;
+        this.phones = phones;
+        this.emails = emails;
     }
 
-    // TODO ADDRESS
+    public Person() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -98,4 +103,21 @@ public class Person {
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
+
+    public String[] getPhones() {
+        return phones;
+    }
+
+    public void setPhones(String[] phones) {
+        this.phones = phones;
+    }
+
+    public String[] getEmails() {
+        return emails;
+    }
+
+    public void setEmails(String[] emails) {
+        this.emails = emails;
+    }
+
 }
