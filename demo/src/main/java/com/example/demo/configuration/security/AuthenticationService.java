@@ -32,6 +32,9 @@ public class AuthenticationService {
         User user = new User();
         user.setUsername(request.getLogin());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setAccountNonExpired(true);
+        user.setAccountNonLocked(true);
+        user.setEnabled(true);
         user.setRole(RoleTest.USER);
         userRepository.save(user);
         var jwtToken = customJWTService.generateToken(user);
