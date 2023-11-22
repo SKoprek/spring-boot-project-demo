@@ -10,6 +10,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.example.demo.Constans;
+
 
 @Configuration
 @EnableWebSecurity
@@ -32,10 +34,13 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> {
                     auth
                             .requestMatchers(
-                                    "/api/ping", "/api/auth/**")
+                                Constans.OPEN_FOR_ALL_PING,
+                                Constans.OPEN_FOR_ALL_AUTH
+                                    // "/api/ping/**", "/api/auth/**"
+                                    )
                             .permitAll()
-                            .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                            .requestMatchers("/api/user/**").hasRole("USER")
+                            .requestMatchers(Constans.OPEN_FOR_ADMIN).hasRole("ADMIN")
+                            // .requestMatchers("/api/user/**").hasRole("USER")
                             .anyRequest().authenticated();
                 })
                 // .formLogin(withDefaults())
