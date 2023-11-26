@@ -1,11 +1,11 @@
-## Spring Boot Project Demo
+# Spring Boot Project Demo
 Example of a Spring Boot `v3` API project (Java 17).
 
-# Setup:
+## Setup:
 Spring Boot:  ``version: 3.1.5``
 Java:   ``version: 17``
 
-# Used package:
+## Used package:
 
 
 
